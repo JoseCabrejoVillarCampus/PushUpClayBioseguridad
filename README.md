@@ -3,25 +3,35 @@
 **1. Listar todas las ventas que se realizaron en el mes de julio de 2023**
 
 ```sql
-# Consulta realizada ....
+SELECT * FROM venta
+WHERE Fecha BETWEEN '2023-07-01' AND '2023-07-30' ; 
 ```
 
 **2. Seleccionar todos los empleados con sus respectivos cargos y municipios**
 
 ```sql
-# Consulta realizada ....
+SELECT e.nombre, m. nombre, c.descripcion
+FROM	empleado AS e
+INNER JOIN municipio AS m ON e.IdMunicipioFk=m.id
+INNER JOIN cargos AS c ON e.IdCargosFk=c.id
 ```
 
 **3. Obtener la lista de todas las ventas con la información de los clientes y la forma de pago**
 
 ```sql
-# Consulta realizada ....
+SELECT v.Fecha, c. cliente, f.forma_pago
+FROM	venta AS v
+INNER JOIN cliente AS c ON v.IdClienteFk=c.id
+INNER JOIN forma_pago AS c ON e.IdFormaPagoFk=f.id
 ```
 
 **4. Mostrar los detalles de todas las órdenes junto con los nombres de los empleados y clientes asociados**
 
 ```sql
-# Consulta realizada ....
+SELECT *, o.IdClienteFk, o.IdEmpleadoFk
+FROM	detalle_orden AS do
+INNER JOIN orden AS o ON do.IdClienteFk=o.id
+INNER JOIN orden AS c ON do.IdEmpleadoFk=o.id
 ```
 
 **5. Listar los productos disponibles en el inventario junto con su talla y color**
