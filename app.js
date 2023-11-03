@@ -7,6 +7,8 @@ import appDepartamento from './routes/DepartamentoRoutes.js';
 import appMunicipio from './routes/MunicipioRoutes.js';
 import appCargos from './routes/CargosRoutes.js';
 import appEmpleado from './routes/EmpleadoRoutes.js';
+import appTipoPersona from './routes/TipoPersonaRoutes.js';
+import appCliente from './routes/ClienteRoutes.js';
 
 dotenv.config();
 const appExpress = express();
@@ -19,6 +21,8 @@ appExpress.use("/departamentos", appDepartamento);
 appExpress.use("/municipios", appMunicipio);
 appExpress.use("/cargos", appCargos);
 appExpress.use("/empleados", appEmpleado);
+appExpress.use("/tipo_de_personas", appTipoPersona);
+appExpress.use("/cliente", appCliente);
 
 const config = JSON.parse(process.env.MY_CONGIG);
 appExpress.listen(config,

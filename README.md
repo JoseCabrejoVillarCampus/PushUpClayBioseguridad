@@ -91,6 +91,14 @@ JWT_PRIVATE_KEY:""
 
 <br><br>
 
+# INICIAR tsc
+
+Es necesario corre el tsc para que se creen los controladores
+
+```
+npm run tsc
+```
+
 # INICIAR nodemon
 
 ```

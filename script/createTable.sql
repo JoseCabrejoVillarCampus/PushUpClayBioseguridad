@@ -1,3 +1,7 @@
+CREATE DATABASE ClayBiosecurity;
+
+USE ClayBiosecurity;
+
 CREATE TABLE pais(
     Id INT(11) NOT NULL AUTO_INCREMENT,
     nombre VARCHAR (50) NOT NULL,

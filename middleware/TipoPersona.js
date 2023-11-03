@@ -1,19 +1,19 @@
 import express from "express";
 import 'reflect-metadata';
 import { plainToClass } from "class-transformer";
-import {MunicipioDTO} from "../dto/MunicipioDTO.ts"
+import {PersonaDTO} from "../dto/PersonaDTO.ts"
 import { validate } from "class-validator";
 import {jwtVerify} from "jose";
 
-const proxyMunicipio = express();
-proxyMunicipio.use(async(req,res, next)=>{
+const proxyPersona = express();
+proxyPersona.use(async(req,res, next)=>{
     try{
         const jwt = req.cookies.token;
         const encoder = new TextEncoder();
         const jwtData = await jwtVerify(
             jwt, encoder.encode(process.env.JWT_PRIVATE_KEY)
         )
-        let data = plainToClass(MunicipioDTO, jwtData.payload,{
+        let data = plainToClass(PersonaDTO, jwtData.payload,{
             excludeExtraneousValues: true
         });
         await validate(data);
@@ -24,4 +24,4 @@ proxyMunicipio.use(async(req,res, next)=>{
         res.status(statusCode).send(errorMessage);
     }
 })
-export default proxyMunicipio;
+export default proxyPersona;
